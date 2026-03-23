@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-around;
+  background: skyblue;
+  text-align: center;
+
+}
+
+.Footer {
+  position: fixed;
+  bottom: 0;
+  width: 100dvw;
+  text-align: center;
+  background: darkblue;
+  color: #fff;
+}
+
+.container {
+    margin-bottom: 5dvh;
+    width: 60dvw;
+    padding-left: 20dvw;
+}
+
+.two-by {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 2dvw;
+}
