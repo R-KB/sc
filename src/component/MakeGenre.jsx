@@ -21,6 +21,8 @@ export default function MakeGenre() {
   };
   return (
     <>
+      <h3>新規ジャンル追加</h3>
+      <hr />
       {isSubmitted && Object.keys(errors).length > 0 && (<Alert variant="danger">入力してください</Alert>)}
       {apiError && <Alert variant="danger">{apiError}</Alert>}
 

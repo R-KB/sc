@@ -1,7 +1,7 @@
 import { Button, Container } from "react-bootstrap";
 import { useState } from "react";
-import EditContent from "../component/EditContent";
-import AddContent from "../component/AddContent";
+import EditQuestion from "../component/EditQuestion";
+import AddQuestion from "../component/AddQuestion";
 import EditGenre from "../component/EditGenre";
 import MakeGenre from "../component/MakeGenre";
 
@@ -14,10 +14,10 @@ export default function Edit() {
         return <MakeGenre />;
       case "EditGenre":
         return <EditGenre />;
-      case "AddContent":
-        return <AddContent />;
-      case "EditContent":
-        return <EditContent />;
+      case "AddQuestion":
+        return <AddQuestion />;
+      case "EditQuestion":
+        return <EditQuestion />;
     }
   }
 
@@ -31,9 +31,9 @@ export default function Edit() {
       ジャンル作成</Button>
     <Button variant="outline-success" size="lg" onClick={() => setActive("EditGenre")}>
       ジャンル編集</Button>
-    <Button variant="info" size="lg" onClick={() => setActive("AddContent")}>
+    <Button variant="info" size="lg" onClick={() => setActive("AddQuestion")}>
       問題追加</Button>
-    <Button variant="outline-info" size="lg" onClick={() => setActive("EditContent")}>
+    <Button variant="outline-info" size="lg" onClick={() => setActive("EditQuestion")}>
       問題編集</Button>
     </div>
     <hr />
