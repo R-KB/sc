@@ -30,3 +30,12 @@
   grid-template-columns: 2fr 2fr;
   gap: 2dvw;
 }
+
+.genre__edit--p {
+  font-size: 1.5rem;
+}
+
+.home__btn {
+  width: 40dvw;
+  margin-left: 1dvw;
+}

@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "api": "java -jar sc_api.jar"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.95.2",
     "axios": "^1.13.6",
     "bootstrap": "^5.3.8",
     "jotai": "^2.18.1",
