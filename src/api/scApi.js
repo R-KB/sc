@@ -11,20 +11,20 @@ export async function getGenre() {
 }
 
 export async function getGenreById(id) {
-    const getGI = await ax.get(`/${id}`);
+    const getGI = await ax.get(`/genre/${id}`);
     return getGI.data;
 }
 
 export async function addGenre(genre) {
-    await ax.post("", genre);
+    await ax.post("/genre", genre);
 }
 
 export async function editGenre(genre) {
-    await ax.put("", genre);
+    await ax.put("/genre", genre);
 }
 
 export async function deleteGenre(id) {
-    await ax.delete(`/${id}`);
+    await ax.delete(`/genre/${id}`);
 }
 
 
@@ -34,25 +34,25 @@ export async function getQuestion() {
 }
 
 export async function getQuestionById(id) {
-    const getQI = await ax.get(`/${id}`);
+    const getQI = await ax.get(`/question/${id}`);
     return getQI.data;
 }
 
 export async function getQuestionByGenre(genreId) {
-    const getQG = await ax.get(`/g/${genreId}`);
+    const getQG = await ax.get(`/question/g/${genreId}`);
     return getQG.data;
 }
 
 export async function addQuestion(question) {
-    await ax.post("", question);
+    await ax.post("/question", question);
 }
 
 export async function editQuestion(question) {
-    await ax.put("", question);
+    await ax.put("/question", question);
 }
 
 export async function deleteQuestion(id) {
-    await ax.delete(`/${id}`);
+    await ax.delete(`/question/${id}`);
 }
 
 export async function getMemo() {
@@ -61,24 +61,24 @@ export async function getMemo() {
 }
 
 export async function getMemoById(id) {
-    const getMI = await ax.get(`/${id}`);
+    const getMI = await ax.get(`/memo/${id}`);
     return getMI.data;
 }
 
 export async function getMemoByQuestion(qId) {
-    const getMQ = await ax.get(`/g/${qId}`);
+    const getMQ = await ax.get(`/memo/g/${qId}`);
     return getMQ.data;
 }
 
 export async function addMemo(memo) {
-    await ax.post("", memo);
+    await ax.post("/memo", memo);
 }
 
 export async function editMemo(memo) {
-    await ax.put("", memo);
+    await ax.put("/memo", memo);
 }
 
 export async function deleteMemo(id) {
-    await ax.delete(`/${id}`);
+    await ax.delete(`/memo/${id}`);
 }
 
