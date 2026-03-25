@@ -1,30 +1,41 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getQuestionByGenre } from "../api/scApi";
+import useGetQuestionByGenre from "../hook/useGetQuestionByGenre";
+import { Alert, Spinner } from "react-bootstrap";
 
-const QuestionList = () => {
-  const { genreId } = useParams();
-  const [question, setQuestion] = useState([]);
+export default function QuestionList(genreId) {
+  const [question, isLoading, isError] = useGetQuestionByGenre(genreId);
+  if(isError) {
+    return <Alert variant="danger">データ取得エラー</Alert>;
+  }
 
-  useEffect(() => {
-    getQuestionByGenre(genreId).then(res => {
-      const shuffled = res.data.sort(() => 0.5 - Math.random());
-      setQuestion(shuffled.slice(0, 5));
-    });
-  }, [genreId]);
+  if(isLoading) {
+    return (
+      <Alert className="d-flex justify-content-center">
+        <Spinner animation="border" />
+      </Alert>
+    );
+  }
 
+  if(question.length === 0) {
+    return <Alert variant="info">データがありません</Alert>;
+  }
   return (
-    <div>
-      <h3>関連データ</h3>
-      <ul>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>問題</th>
+          <th>答え</th>
+        </tr>
+      </thead>
+      <tbody>
         {question.map((question) => (
-          <li key={question.id}>
-            {question.id} / {question.description} / {question.answer}
-          </li>
+          <tr key={question.id}>
+            <td>{question.id}</td>
+            <td>{question.description}</td>
+            <td>{question.answer}</td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </table>
   );
-};
-
-export default QuestionList;
+}
