@@ -1,25 +1,34 @@
 import { useForm } from "react-hook-form";
+import { useRef } from "react";
 import useAddQuestion from "../hook/useAddQuestion";
 import { Alert, Button } from "react-bootstrap";
 
 export default function AddQuestion() {
   const { apiError, isSaving, add } = useAddQuestion();
+  const fileRef = useRef(null);
   const {
     register, handleSubmit, reset, formState: { errors, isSubmitted }
   } = useForm({
-    defaultValues: { genreId: "", img: "", description: "", answer:"" }, mode: "onSubmit", reValidateMode: "onSubmit"
+    defaultValues: { genreId: "", description: "", answer:"" }, mode: "onSubmit", reValidateMode: "onSubmit"
   });
 
   const inputGenreId = register("genreId", { required: true });
-  const inputImg = register("img", { required: false });
   const inputDescription = register("description", { required: true });
   const inputAnswer = register("answer", { required: true });
 
   const submitHandler = async(data) => {
-    const success = await add(data);
+    const formData = new FormData();
+    formData.append("genreId", data.genreId);
+    formData.append("description", data.description);
+    formData.append("answer", data.answer);
+    if (fileRef.current && fileRef.current.files[0]) {
+      formData.append("img", fileRef.current.files[0]);
+    }
+    const success = await add(formData);
     if(success) {
       console.log("登録完了");
       reset();
+      if (fileRef.current) fileRef.current.value = "";
     }
   };
   return (
@@ -34,7 +43,7 @@ export default function AddQuestion() {
         <input type="number" id="q_genreId" name="q_genreId" {...inputGenreId} />
 
         <label htmlFor="q_img">問題画像：</label>
-        <input type="text" id="q_img" name="q_img" {...inputImg} />
+        <input type="file" id="q_img" name="q_img" ref={fileRef} accept="image/*" />
 
         <label htmlFor="q_description">問題文：</label>
         <input type="text" id="q_description" name="q_description" {...inputDescription} />

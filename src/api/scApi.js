@@ -44,7 +44,15 @@ export async function getQuestionByGenre(genreId) {
 }
 
 export async function addQuestion(question) {
-    await ax.post("/question", question);
+    const formData = new FormData();
+    for (const key in question) {
+        if (question[key] !== null && question[key] !== undefined) {
+            formData.append(key, question[key]);
+        }
+    }
+    await ax.post("/question", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+    });
 }
 
 export async function editQuestion(question) {

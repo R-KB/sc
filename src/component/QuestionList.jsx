@@ -6,11 +6,13 @@ import useGetMemoByQuestion from "../hook/useGetMemoByQuestion";
 function QuestionCard({ question }) {
   const { memo, isLoading, isError } = useGetMemoByQuestion(question.id);
 
+  const imgSrc = question.img ? `/questionImg/${question.img}` : "/questionImg/200x150.png";
+
   return (
     <Card className="mb-3">
       <Card.Body>
         <Card.Title>問題 {question.id}</Card.Title>
-        <Card.Img variant="top" className="q-img" src="https://placehold.jp/23578b/ffffff/200x150.png?text=No%20Image." />
+        <Card.Img variant="top" className="q-img" src={imgSrc} />
         <Card.Text>{question.description}</Card.Text>
 
         <Accordion defaultActiveKey="">
