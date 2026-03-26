@@ -4,17 +4,16 @@ import { useState } from "react";
 import QuestionList from "../component/QuestionList";
 
 export default function Check() {
-  const [selectedGenre, setSelectedGenre] = useState(null);
+  const [selectedGenreId, setSelectedGenreId] = useState(null);
+
   return (
     <>
-    <Container>
-      <h2>check</h2>
-      <hr />
-      <div className="two-by">
-      <GenreList onSelect={setSelectedGenre} />
-      {selectedGenre && <QuestionList genreId={selectedGenre.genreId} />}
-      </div>
-    </Container>
+      <Container>
+        <h2>check</h2>
+        <hr />
+        <GenreList onSelect={setSelectedGenreId} />
+        <QuestionList genreId={selectedGenreId} />
+      </Container>
     </>
-  )
+  );
 }

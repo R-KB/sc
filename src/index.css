@@ -29,6 +29,7 @@
   display: grid;
   grid-template-columns: 2fr 2fr;
   gap: 2dvw;
+
 }
 
 .genre__edit--p {
@@ -36,6 +37,13 @@
 }
 
 .home__btn {
-  width: 40dvw;
-  margin-left: 1dvw;
+  width: 20dvw;
+}
+
+.link-top {
+  text-decoration: none;
+}
+
+.q-img {
+  max-width: 40dvw;
 }

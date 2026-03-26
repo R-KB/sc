@@ -66,7 +66,7 @@ export async function getMemoById(id) {
 }
 
 export async function getMemoByQuestion(qId) {
-    const getMQ = await ax.get(`/memo/g/${qId}`);
+    const getMQ = await ax.get(`/memo/q/${qId}`);
     return getMQ.data;
 }
 
