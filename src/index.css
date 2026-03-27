@@ -30,7 +30,6 @@
   display: grid;
   grid-template-columns: 2fr 2fr;
   gap: 2dvw;
-
 }
 
 .genre__edit--p {
@@ -38,7 +37,8 @@
 }
 
 .home__btn {
-  width: 20dvw;
+  width: 30dvw;
+  height: 8dvh;
 }
 
 .link-top {
