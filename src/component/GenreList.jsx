@@ -31,7 +31,7 @@ export default function GenreList({ onSelect }) {
     <>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "0.75rem" }}>
         {pageGenres.map((g) => (
-          <Button key={g.id} onClick={() => onSelect(g.id)}>
+          <Button variant="success" key={g.id} onClick={() => onSelect(g.id)}>
             {g.name}
           </Button>
         ))}

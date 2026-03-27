@@ -1,4 +1,4 @@
-import { Alert, Spinner } from "react-bootstrap";
+import { Alert, Button, Spinner } from "react-bootstrap";
 import { useState } from "react";
 import useGetGenre from "../hook/useGetGenre";
 import useEditGenre from "../hook/useEditGenre";
@@ -86,7 +86,7 @@ export default function EditGenre() {
                   autoFocus
                   disabled={isSaving}
                 />
-                <button
+                <Button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -95,8 +95,8 @@ export default function EditGenre() {
                   disabled={isSaving}
                 >
                   変更
-                </button>
-                <button
+                </Button>
+                <Button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -105,7 +105,7 @@ export default function EditGenre() {
                   disabled={isSaving}
                 >
                   キャンセル
-                </button>
+                </Button>
               </>
             ) : (
               <span>{item.id}. {item.name}</span>
