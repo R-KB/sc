@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="Header">
       <Link to="/" className="link-top"><h4>TOPへ</h4></Link>
-      this is header.
+      <div className="hdr__hide-msg">this is header.</div>
       <div id="clock">
         <span>{hours}</span>
         :<span>{minutes}</span>

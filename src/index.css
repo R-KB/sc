@@ -6,9 +6,13 @@
   display: flex;
   padding: 0 1.5dvw;
   justify-content: space-between;
-  background: skyblue;
+  background: black;
+  color: #fff;
   text-align: center;
+}
 
+.hdr__hide-msg {
+  color: black;
 }
 
 .Footer {
@@ -16,8 +20,12 @@
   bottom: 0;
   width: 100dvw;
   text-align: center;
-  background: darkblue;
-  color: #fff;
+  background: gray;
+  color: black;
+}
+
+.ftr__hide-msg {
+  color: gray;
 }
 
 .container {
